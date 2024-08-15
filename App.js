@@ -1,20 +1,22 @@
+import { NavigationContainer, ThemeProvider } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Appearance, StyleSheet, Text, View } from 'react-native';
+import HomeScreen from './screens/PostsScreen';
+import { Navigation } from './screens/Navigation';
+import baseStyles from './assets/styles/styles'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+const getIsSignedIn = () => {
+  return true;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  const colorScheme = Appearance.getColorScheme();
+  console.log( colorScheme)
+  return (
+    <ThemeProvider>
+      <Navigation></Navigation>
+      <StatusBar style={baseStyles.appContainer} ></StatusBar>
+    </ThemeProvider>
+  )
+}
+
