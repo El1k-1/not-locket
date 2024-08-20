@@ -26,6 +26,8 @@ export const Navigation = () => {
             ...baseStyles.appContainer,
             ...baseStyles.viewCenter,
           },
+          gestureDirection:'horizontal',
+          gestureEnabled: true
         }}
       >
         {isSignedIn ? (
